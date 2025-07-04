@@ -7,10 +7,10 @@ import java.util.List;
 public class ShippingService {
     private List<ShippableProduct> items;
     public ShippingService(List<ShippableProduct> productList){
-        this.items = new ArrayList<>();
-        for(var item: productList){
+        this.items = new ArrayList<>(productList);
+        /* for(var item: productList){
             items.add(item);
-        }
+        } */
     }
     public void shippingSummary(){
         System.out.println("==Shipping Details==");
