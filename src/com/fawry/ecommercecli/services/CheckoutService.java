@@ -11,7 +11,7 @@ public class CheckoutService {
         ShoppingCartService customerCart = customer.getCart();
 
         if(customerCart.getProducts().isEmpty()){
-            throw new EmptyCartException();
+            throw new EmptyCartException(customer);
         }
 
         for (var pair : customerCart.getProducts().entrySet()) {
@@ -47,7 +47,7 @@ public class CheckoutService {
         System.out.printf("Subtotal: %5.2f\n",subTotal);
         System.out.printf("Shipping Fees: %4.2f\n",fees);
         System.out.printf("Total: %6.2f\n",subTotal + fees);
-        
+
         System.out.printf("\n%s's previous Balance: %.2f\n",customer.getName(),customer.getBalance());
         customer.deduceBalance(fees + subTotal);
         System.out.printf("%s's current Balance: %.2f\n",customer.getName(),customer.getBalance());
