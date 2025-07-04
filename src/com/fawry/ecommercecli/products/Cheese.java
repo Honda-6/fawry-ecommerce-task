@@ -2,7 +2,7 @@ package com.fawry.ecommercecli.products;
 
 import java.time.LocalDate;
 
-public class Cheese extends Product implements ShippableProduct,PerishableProduct  {
+public class Cheese extends Product implements PerishableProduct {
     private LocalDate expiryDate;
     private double weight;
     public Cheese(String name,double price, int stock, LocalDate expirationDate, double weight){
