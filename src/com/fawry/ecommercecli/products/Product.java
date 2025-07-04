@@ -12,7 +12,7 @@ public abstract class Product {
     public double getPrice(){
         return this.price;
     }
-    protected String getProductName(){
+    public String getProductName(){
         return this.name;
     }
     public int getStock(){
