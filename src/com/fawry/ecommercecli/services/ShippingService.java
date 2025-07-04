@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShippingService {
-    private List<Shippable> items;
-    public ShippingService(List<Shippable> productList){
+    private List<ShippableProduct> items;
+    public ShippingService(List<ShippableProduct> productList){
         this.items = new ArrayList<>();
         for(var item: productList){
             items.add(item);

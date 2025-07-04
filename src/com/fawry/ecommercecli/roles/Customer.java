@@ -1,4 +1,4 @@
-package com.fawry.ecommercecli.role;
+package com.fawry.ecommercecli.roles;
 
 public class Customer extends Account{
     //Cart shoppingCart;

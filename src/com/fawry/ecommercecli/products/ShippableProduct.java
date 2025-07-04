@@ -1,6 +1,6 @@
 package com.fawry.ecommercecli.products;
 
-public interface Shippable {
+public interface ShippableProduct {
     String getName();
     double getWeight();
 }
