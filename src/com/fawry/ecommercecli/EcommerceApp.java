@@ -1,32 +1,27 @@
 package com.fawry.ecommercecli;
 
-import java.time.LocalDate;
-import com.fawry.ecommercecli.products.Cheese;
-import com.fawry.ecommercecli.products.Product;
-import com.fawry.ecommercecli.products.ScratchCard;
-import com.fawry.ecommercecli.products.TV;
-import com.fawry.ecommercecli.roles.Customer;
-import com.fawry.ecommercecli.services.CheckoutService;
-import com.fawry.ecommercecli.services.ShoppingCartService;
+import com.fawry.ecommercecli.appscenarios.*;
 
 public class EcommerceApp {
     public static void main(String[] args) {
-        Product tv = new TV("Samsung 55 inch", 12000, 7, 4000);
-        Product cheese = new Cheese("Blue Cheese", 60, 4, LocalDate.of(2025, 7, 5), 200);
-        Product scratchCard = new ScratchCard("GiftCard", 200, 10, "dahigfwerefds");
-        Customer cust = new Customer("Ahmed", "123214231", "AyHaga@email.com", 100000);
-        try{
-            cust.addItem(tv, -1);
-            cust.addItem(cheese, 2);
-            cust.removeItem(scratchCard, ShoppingCartService.Removed.ONE);
-        }catch(Exception e){
-            System.err.println(e.getMessage());
-        }
-        try{
-            CheckoutService.checkout(cust);
-        }catch(Exception e){
-            System.err.println(e.getMessage());
-        }
+        System.out.println("Normal flow scenario\n===================================\n");
+        NormalFlowScenario.run();
+        System.out.println("\n===================================\n");
+        System.out.println("\nInsufficient funds scenario\n===================================\n");
+        InsufficientFundScenario.run();
+        System.out.println("\n===================================\n");
+        System.out.println("\nExpired product scenario\n===================================\n");
+        ExpiredProductScenario.run();
+        System.out.println("\n===================================\n");
+        System.out.println("\nEmpty cart scenario\n===================================\n");
+        EmptyCartScenario.run();
+        System.out.println("\n===================================\n");
+        System.out.println("\nRemoving a non-existent element from cart scenario\n===================================\n");
+        RemoveNonExistingItemFromCartScenario.run();
+        System.out.println("\n===================================\n");
+        System.out.println("\nAdding invalid quantites of a product scenario\n===================================\n");
+        InvalidQuantityScenario.run();
+        System.out.println("\n===================================\n");
     }
     
 }
